@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-Up</title>
+    <link rel="stylesheet" href="styles/signup.css" />
+    <link rel="stylesheet" href="styles/omdbApi.css" />
+  </head>
+  <style>
+    #click-signup {
+      color: red;
+    }
+  </style>
+  <body>
+    <div class="nav"></div>
+    <div id="main-signup">
+      <form onsubmit="Register(event)">
+        <h1>Register</h1>
+        <hr />
+        <div>Name</div>
+        <input required type="text" id="uname" placeholder="name" />
+        <div>E-mail</div>
+        <input required type="email" name="" id="email" placeholder="email" />
+        <div>Username</div>
+        <input
+          required
+          type="text"
+          name=""
+          id="username"
+          placeholder="username"
+        />
+        <div>Password</div>
+        <input
+          required
+          type="password"
+          name=""
+          id="password"
+          placeholder="password"
+        />
+        <div>Mobile Number</div>
+        <input
+          required
+          type="number"
+          name=""
+          id="mobile"
+          placeholder="mobile"
+        />
+        <div>Description</div>
+        <input
+          required
+          type="text"
+          name=""
+          id="description"
+          placeholder="description"
+        />
+
+        <input type="submit" name="" />
+      </form>
+    </div>
+  </body>
+</html>
+<script src="script/signup.js"></script>
+<script type="module">
+  import { navbar } from "./components/navbar.js";
+  document.querySelector(".nav").innerHTML = navbar();
+
+  //   let click_home = document.getElementById("click-home");
+
+  //   click_home.addEventListener("click", () => {
+  //     window.location.href = "omdbApi.html";
+  //   });
+
+  let click_login = document.getElementById("click-login");
+
+  click_login.addEventListener("click", () => {
+    window.location.href = "login.html";
+  });
+</script>

@@ -1,0 +1,85 @@
+#navbar {
+  display: flex;
+  padding-left: 4%;
+  padding-right: 4%;
+  border: solid black 1px;
+  justify-content: space-between;
+}
+
+#options {
+  display: flex;
+  gap: 20px;
+}
+#search {
+  display: flex;
+  width: 100%;
+  margin-top: 2%;
+  justify-content: space-between;
+}
+#search > div {
+  flex: 50%;
+}
+#in-search {
+  width: 70%;
+  padding: 15px 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid red;
+  outline-color: red;
+}
+#btn-search {
+  margin-left: -3px;
+  padding: 5px 10px;
+}
+#logo:hover {
+  cursor: pointer;
+}
+#specific-item > img {
+  width: 50%;
+  height: 250px;
+  border-radius: 10px;
+}
+#list > p:hover {
+  cursor: pointer;
+  color: red;
+}
+body {
+  background-color: #b0e0e6;
+}
+#list {
+  height: 200px;
+  width: 70%;
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+#data {
+  display: grid;
+  width: 80%;
+  margin: auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 35px;
+}
+#data > div > img {
+  width: 100%;
+  border-radius: 15px;
+}
+#data > div {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+}
+#data > div > div {
+  font-size: 20px;
+  padding: 5px;
+}
+#data > div > span,
+h3 {
+  padding: 5px;
+}
+h1 {
+  width: 25%;
+  padding: 10px;
+  margin-left: 10%;
+  text-decoration: underline;
+  color: red;
+}

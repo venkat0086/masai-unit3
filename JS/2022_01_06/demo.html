@@ -1,0 +1,136 @@
+<!-- Create a food app which will allow user to search receipe by name, get receipe of the day
+     and show random receipes.
+Use https://www.themealdb.com/api.php?ref=apilist.fun as your API.
+Create a navbar for easy navigation, it should be visible on all pages.
+You will have to build three pages as mentioned above.
+For this problem, start by building a search page.
+Bonus: Implement debouncing while you are searching for meals in real-time.
+Use components to make your code reusable.
+Mandatory: ES6 and using components -->
+
+<!-- Create a recipe of the day feature. As you open this page, a random recipe
+should be visible Users should be able to see all the details of that recipe. -->
+
+<!-- Create a latest.html page.
+Upon opening, show the latest recipes. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Food App</title>
+    <style>
+      #list {
+        height: 200px;
+        width: 70%;
+        padding: 0 20px;
+        overflow: scroll;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main_nav"></div>
+
+    <h2>Search For Food</h2>
+    <div id="search">
+      <div>
+        <input
+          type="text"
+          id="in-search"
+          oninput="debounce(searchItems,1000)"
+          placeholder="Search for dish"
+        />
+        <div id="list"></div>
+      </div>
+
+      <div id="specific-item"></div>
+    </div>
+    <!-- <button id="btn-search">Search</button> -->
+  </body>
+</html>
+<script type="module">
+  //   let specific_item = document.getElementById("specific-item");
+
+  let main_nav = document.getElementById("main_nav");
+  import { searchItems } from "./script/showData.js";
+  import { navbar } from "./components/navbar.js";
+  main_nav.innerHTML = navbar();
+  //   let items_div = document.getElementById("list");
+  //   let item_wait;
+
+  let input = document.getElementById("in-search").value;
+
+  //   if (input.length <= 2) {
+  //     return false;
+  //   }
+  let response = await searchItems(
+    `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`
+  );
+  console.log(response);
+</script>
+<script>
+  // async function searchItems() {
+  //   try {
+  // let response = await fetch(url);
+  // let data = await response.json();
+
+  // let search_arr = data.meals;
+  // appendItems(search_arr);
+
+  // } catch (error) {
+  //   console.log(error);
+  //   }
+  // }
+
+  // function appendItems(items) {
+  //   items_div.innerHTML = null;
+
+  //   if (items == undefined) {
+  //     return false;
+  //   }
+
+  //   items.forEach((element) => {
+  //     let p = document.createElement("p");
+  //     p.innerHTML = element.strMeal;
+
+  //     p.addEventListener("click", () => {
+  //       console.log(element);
+  //       specificDiv(element);
+  //     });
+
+  //     items_div.append(p);
+  //   });
+  // }
+
+  function debounce(func, delay) {
+    if (item_wait) {
+      clearTimeout(item_wait);
+    }
+    item_wait = setTimeout(function () {
+      func();
+    }, delay);
+  }
+
+  //   function specificDiv(ele) {
+  //     specific_item.innerHTML = "";
+
+  //     let poster = document.createElement("img");
+  //     poster.src = ele.strMealThumb;
+
+  //     let title = document.createElement("h2");
+  //     title.innerHTML = ele.strMeal;
+
+  //     let year = document.createElement("h3");
+  //     year.innerHTML = ele.strArea;
+
+  //     let video_div = document.createElement("a");
+  //     video_div.innerHTML = "Watch On YouTube";
+  //     video_div.href = ele.strYoutube;
+
+  //     specific_item.append(poster, title, year, video_div);
+  //   }
+</script>

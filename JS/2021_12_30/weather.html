@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="" id="cityName" />
+    <button onclick="getWeather()">Search</button>
+    <div id="data_div"></div>
+    <div id="map"></div>
+
+    <div id="mapDis"></div>
+  </body>
+</html>
+<script>
+  // let url="api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}";
+  let data_div = document.getElementById("data_div");
+  let mapDia = document.getElementById("map");
+  let mapDis = document.getElementById("mapDis");
+  async function getWeather() {
+    try {
+      let city = document.getElementById("cityName").value;
+      let response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4242e32c678f16e55803d15f3d9abd6f&units=metric`
+      );
+
+      let data = await response.json();
+      showWeather(data);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function showWeather(weather) {
+    let temp = document.createElement("p");
+    temp.innerText = `Temperature: ${weather.main.temp}°`;
+    let pressure = document.createElement("p");
+    pressure.innerText = `Pressure: ${weather.main.pressure}`;
+    let humidity = document.createElement("p");
+    humidity.innerText = `Humidity: ${weather.main.humidity}`;
+    data_div.append(temp, pressure, humidity);
+
+    mapDis.innerHTML = `<iframe
+        id="frame"
+        width="600"
+        height="450"
+        style="border: 0"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjYBGxVSAaSf4kbx7Ki-BlAKrQctsQCGg
+    &q=${weather.name}"
+      >
+      </iframe>`;
+
+    console.log(mapDis);
+  }
+
+  //   showWeather();
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="contain">
+      <div>
+        <h1>Add Product</h1>
+        <input type="number" placeholder="id" id="id" />
+
+        <input type="name" placeholder="name" id="name" />
+
+        <input type="number" placeholder="price" id="price" />
+
+        <button onclick="addProduct()">Add Product</button>
+      </div>
+
+      <div>
+        <h1>Delete Product</h1>
+
+        <input type="text" id="delete_id" placeholder="Enter id to Delete" />
+
+        <button onclick="deleteProduct()">Delete Product</button>
+      </div>
+
+      <div>
+        <h1>Update Product</h1>
+
+        <input type="text" id="update_id" placeholder="Enter id to Update" />
+        <input type="name" placeholder="name" id="uName" />
+
+        <input type="number" placeholder="price" id="uPrice" />
+
+        <button onclick="updateProduct()">Update Product</button>
+      </div>
+    </div>
+
+    <div>
+      <h1>Watch Product</h1>
+      <div id="watchProd"></div>
+    </div>
+  </body>
+</html>
+<script src="index.js"></script>

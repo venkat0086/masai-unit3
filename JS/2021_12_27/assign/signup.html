@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/signup.css" />
+    <title>Sign-Up</title>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="left"></div>
+      <div>
+        <div onclick="goHome()">Home</div>
+        <div onclick="goLogin()">Login</div>
+        <div onclick="goSignUp()" style="color: red">Sign-up</div>
+      </div>
+    </div>
+
+    <div id="main">
+      <form>
+        <h1>Sign Up</h1>
+        <hr />
+
+        <div>Name</div>
+        <input id="user" type="text" placeholder="Enter Your Name" required />
+
+        <div>Contact No</div>
+        <input
+          id="contact"
+          type="number"
+          placeholder="Enter Phone Number"
+          required
+        />
+        <div>E-mail</div>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter Your Mail ID"
+          required="required"
+        />
+        <div>Password</div>
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter Your Password"
+          required
+        />
+        <br /><br />
+        <input type="submit" name="" id="button" value="Submit" />
+        <!-- <button>SIGN UP</button> -->
+      </form>
+    </div>
+  </body>
+</html>
+<script src="js/home.js"></script>
+<script src="js/signup.js"></script>

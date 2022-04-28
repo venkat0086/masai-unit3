@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <style>
+    #repo_list {
+      width: 30%;
+      border: 1px solid red;
+      height: 500px;
+      margin: 1% 0 0 1%;
+      overflow: scroll;
+    }
+    #repo_list > h3 {
+      color: blue;
+      text-decoration: underline;
+    }
+    #repo_list > h3:hover {
+      cursor: pointer;
+      color: red;
+    }
+  </style>
+  <body>
+    <div id="nav_div"></div>
+    <div id="main">
+      <!-- <button id="repo-btn">Get User Repo</button> -->
+    </div>
+    <div id="repo_list"></div>
+  </body>
+</html>
+<script type="module">
+  import navbar from "./components/navbar.js";
+  import { getUser } from "./script/getUser.js";
+  let nav_div = document.getElementById("nav_div");
+  nav_div.innerHTML = navbar();
+
+  let input = document.getElementById("search-input");
+  input.addEventListener("keypress", searchUser);
+
+  let response;
+
+  // let btn = document.getElementById("repo-btn");
+
+  // btn.addEventListener("click", getUserRepo);
+
+  async function searchUser(event) {
+    if (event.key === "Enter") {
+      let query = input.value;
+
+      response = await getUser(query);
+
+      let { avatar_url } = response;
+
+      document.getElementById("profile-img").src = avatar_url;
+      console.log(response);
+      getUserRepo();
+    }
+  }
+  async function getUserRepo() {
+    try {
+      let res = await fetch(response.repos_url);
+      let repo_data = await res.json();
+      console.log(repo_data);
+      repo_list_func(repo_data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  let repo_list = document.querySelector("#repo_list");
+  function repo_list_func(data) {
+    repo_list.innerHTML = "";
+    data.forEach(({ html_url, full_name }) => {
+      let div_full_name = document.createElement("h3");
+
+      // let div_link = document.createElement("a");
+      // div_link.innerHTML = full_name;
+      // div_link.href = html_url;
+      // div_link.href = html_url;
+
+      // div_full_name.append(div_link);
+      div_full_name.innerHTML = full_name;
+      div_full_name.addEventListener("click", (ele) => {
+        window.location.href = html_url;
+      });
+
+      repo_list.append(div_full_name);
+    });
+  }
+</script>

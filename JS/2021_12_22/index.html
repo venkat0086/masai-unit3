@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+    <style>
+      body {
+        background-color: silver;
+      }
+      button {
+        padding: 10px 25px;
+        font-weight: bold;
+        border-radius: 100px;
+        border: 1px solid green;
+        background-color: white;
+      }
+      button:hover {
+        cursor: pointer;
+        color: white;
+        background-color: green;
+      }
+      #main {
+        width: 56%;
+        margin: auto;
+      }
+      #content {
+        width: 80%;
+        margin: auto;
+      }
+      ul {
+        list-style: square;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <button onclick="obj()">Objects</button>
+      <button onclick="arr()">Arrays</button>
+      <button onclick="func()">Functions</button>
+      <button onclick="str()">Strings</button>
+      <button onclick="num()">Number</button>
+      <button onclick="nul()">Null</button>
+      <button onclick="undef()">Undefined</button>
+    </div>
+    <div id="content"></div>
+  </body>
+</html>
+<script>
+  function obj() {
+    document.querySelector("#content").textContent = "";
+    var div = document.querySelector("#content");
+    var h1 = document.createElement("h1");
+    h1.textContent = "Objects";
+    var p = document.createElement("p");
+    p.textContent =
+      "Objects in JavaScript, just as in many other programming languages, can be compared to objects in real life. The concept of objects in JavaScript can be understood with real life, tangible objects. In JavaScript, an object is a standalone entity, with properties and type. Compare it with a cup, for example. A cup is an object, with properties. A cup has a color, a design, weight, a material it is made of, etc. The same way, JavaScript objects can have properties, which define their characteristics.";
+    var ul = document.createElement("ul");
+    var list = [
+      "Booleans can be objects (if defined with the new keyword)",
+      "Numbers can be objects (if defined with the new keyword)",
+      "Strings can be objects (if defined with the new keyword)",
+      "Dates are always objects",
+      "Functions are always objects",
+      "Objects are always objects",
+    ];
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = list[i];
+      ul.append(li);
+    }
+    div.append(h1, p, ul);
+    document.querySelector("body").append(div);
+  }
+
+  function arr() {
+    document.querySelector("#content").textContent = "";
+    var div = document.querySelector("#content");
+    var h1 = document.createElement("h1");
+    h1.textContent = "Arrays";
+    var p = document.createElement("p");
+    p.textContent =
+      "Arrays are list-like objects whose prototype has methods to perform traversal and mutation operations. Neither the length of a JavaScript array nor the types of its elements are fixed. Since an array's length can change at any time, and data can be stored at non-contiguous locations in the array, JavaScript arrays are not guaranteed to be dense; this depends on how the programmer chooses to use them.";
+    var ul = document.createElement("ul");
+    var list = [
+      "Arrays cannot use strings as element indexes",
+      "JavaScript arrays are zero-indexed can be objects",
+      "Array elements are object properties ",
+      "Array is a container object that holds a fixed number of values of a single type",
+      " Each item in an array is called an element",
+    ];
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = list[i];
+      ul.append(li);
+    }
+    div.append(h1, p, ul);
+    document.querySelector("body").append(div);
+  }
+
+  function func() {
+    document.querySelector("#content").textContent = "";
+    var div = document.querySelector("#content");
+    var h1 = document.createElement("h1");
+    h1.textContent = "Functions";
+    var p = document.createElement("p");
+    p.textContent =
+      "Functions are one of the fundamental building blocks in JavaScript.A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:";
+    var ul = document.createElement("ul");
+    var list = [
+      "The name of the function.",
+      "A list of parameters to the function, enclosed in parentheses and separated by commas.",
+      "The JavaScript statements that define the function, enclosed in curly brackets, {...}.",
+      "The function square takes one parameter, called number.",
+      " Primitive parameters (such as a number) are passed to functions by value",
+    ];
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = list[i];
+      ul.append(li);
+    }
+    div.append(h1, p, ul);
+    document.querySelector("body").append(div);
+  }
+
+  function str() {
+    document.querySelector("#content").textContent = "";
+    var div = document.querySelector("#content");
+    var h1 = document.createElement("h1");
+    h1.textContent = "Strings";
+    var p = document.createElement("p");
+    p.textContent =
+      "Strings are useful for holding data that can be represented in text form. Some of the most-used operations on strings are to check their length.";
+    var ul = document.createElement("ul");
+    var list = [
+      "Creating Strings",
+      "Character Access",
+      "Comparing Strings",
+      "String primitives and String objects",
+      "Escape Sequences",
+    ];
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = list[i];
+      ul.append(li);
+    }
+    div.append(h1, p, ul);
+    document.querySelector("body").append(div);
+  }
+
+  function num() {
+    document.querySelector("#content").textContent = "";
+    var div = document.querySelector("#content");
+    var h1 = document.createElement("h1");
+    h1.textContent = "Number";
+    var p = document.createElement("p");
+    p.textContent =
+      "The Number constructor contains constants and methods for working with numbers. Values of other types can be converted to numbers using the Number() function.";
+    var ul = document.createElement("ul");
+    var list = [
+      "The JavaScript Number type is a double-precision 64-bit binary format IEEE 754 value",
+      "Number only keeps about 17 decimal places of precision",
+      "The largest value a Number can hold is about 1.8E308",
+      "Values higher than that are replaced with the special Number constant Infinity",
+      "A number literal like 37 in JavaScript code is a floating-point value, not an integer",
+    ];
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = list[i];
+      ul.append(li);
+    }
+    div.append(h1, p, ul);
+    document.querySelector("body").append(div);
+  }
+
+  function nul() {
+    document.querySelector("#content").textContent = "";
+    var div = document.querySelector("#content");
+    var h1 = document.createElement("h1");
+    h1.textContent = "Null";
+    var p = document.createElement("p");
+    p.textContent =
+      "The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values and is treated as falsy for boolean operations.";
+    var ul = document.createElement("ul");
+    var list = [
+      "The value null is written with a literal",
+      "null is not an identifier for a property of the global object",
+      "null expresses a lack of identification.",
+      "indicating that a variable points to no object",
+      "null is often retrieved in a place where an object can be expected but no object is relevant.",
+    ];
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = list[i];
+      ul.append(li);
+    }
+    div.append(h1, p, ul);
+    document.querySelector("body").append(div);
+  }
+
+  function undef() {
+    document.querySelector("#content").textContent = "";
+    var div = document.querySelector("#content");
+    var h1 = document.createElement("h1");
+    h1.textContent = "Undefined";
+    var p = document.createElement("p");
+    p.textContent =
+      "The global undefined property represents the primitive value undefined";
+    var ul = document.createElement("ul");
+    var list = [
+      "undefined is a property of the global object",
+      "The initial value of undefined is the primitive value undefined",
+      "undefined is a non-configurable",
+      "undefined is a non-writable property.",
+      "A function returns undefined if a value was not returned.",
+    ];
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = list[i];
+      ul.append(li);
+    }
+    div.append(h1, p, ul);
+    document.querySelector("body").append(div);
+  }
+</script>

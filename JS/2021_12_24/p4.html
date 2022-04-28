@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function MyArr() {
+    this.length = arguments.length;
+
+    Object.defineProperty(this, "length", {
+      writable: true,
+      enumerable: false,
+    });
+
+    for (var i = 0; i < this.length; i++) {
+      this[i] = arguments[i];
+    }
+  }
+  MyArr.prototype.myPush = function (ele) {
+    this[this.length] = ele;
+    this.length++;
+  };
+
+  MyArr.prototype.myRev = function () {
+    let rev = [];
+    for (var i = this.length - 1; i >= 0; i--) {
+      rev.push(this[i]);
+    }
+    console.log("Reverse Array", rev);
+  };
+
+  MyArr.prototype.firstEle = function () {
+    console.log("First Element: " + this[0]);
+  };
+  let venArr = new MyArr(1, 2, 3, 4, 88);
+  venArr.myPush(90);
+  venArr.myPush(100);
+  venArr.myPush(105);
+  venArr.myPush(155);
+  console.log(Object.values(venArr));
+  venArr.myRev();
+  venArr.firstEle();
+</script>

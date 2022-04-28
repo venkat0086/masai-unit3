@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather-Report</title>
+  </head>
+  <style>
+    #cityName {
+      width: 50%;
+      margin-left: 20%;
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
+    #searchBtn {
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 0;
+    }
+    #searchBtn:hover {
+      cursor: pointer;
+      color: white;
+      background-color: black;
+    }
+    body {
+      background-color: #053672;
+    }
+    iframe {
+      margin-left: 10%;
+    }
+    #main_div {
+      display: flex;
+      justify-content: space-between;
+      width: 70%;
+      margin: auto;
+    }
+    /* #data_div > div {
+      color: white;
+      font-size: 18px;
+    } */
+    #I-temp {
+      display: flex;
+    }
+    #curTemp {
+      color: white;
+      margin: 8px 0 0 10px;
+      font-size: 33px;
+      font-weight: bold;
+    }
+    #max-hum-wind {
+      color: white;
+      margin-left: 10px;
+      font-size: 16px;
+    }
+    #in-place > div {
+      color: white;
+      font-size: 35px;
+      text-align: right;
+    }
+    p {
+      color: white;
+      font-size: 18px;
+      break-inside: auto;
+    }
+    #daily_div {
+      width: 200px;
+      color: red;
+      margin: auto;
+      font-size: 25px;
+    }
+
+    #daily_arr {
+      display: flex;
+      width: 70%;
+      margin: auto;
+    }
+    #daily_arr > div {
+      padding: 10px;
+      margin-left: 15px;
+      text-align: center;
+      color: white;
+      background-color: black;
+    }
+    #daily_arr > div:hover {
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  </style>
+  <body>
+    <input type="text" name="" id="cityName" />
+    <button id="searchBtn" onclick="getWeather()">Search</button><br />
+    <div id="main_div">
+      <div id="data_div">
+        <div id="I-temp">
+          <div id="curTemp"></div>
+        </div>
+        <div id="max-hum-wind"></div>
+      </div>
+    </div>
+    <br />
+    <div id="daily_div">Next 8 Days Report</div>
+    <br />
+    <div id="daily_arr"></div>
+    <br />
+    <div id="in-place"></div>
+
+    <div id="mapDis"></div>
+  </body>
+</html>
+<script src="script.js"></script>

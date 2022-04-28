@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/omdbApi.css" />
+    <title>Search-Movie</title>
+  </head>
+  <style>
+    #click-home {
+      color: red;
+    }
+    #click-signup {
+      cursor: not-allowed;
+      color: grey;
+    }
+  </style>
+  <body onload="start()">
+    <div class="nav"></div>
+    <!-- <div class="nav">
+      <div class="left">
+        <input
+          type="text"
+          name=""
+          id="name"
+          placeholder="search for a movie...."
+        />
+        <button onclick="search()" id="btn">Search</button>
+      </div>
+      <div>
+        <div style="color: red">Home</div>
+        <div onclick="goLogin()">Login</div>
+        <div onclick="goSignUp()">Sign-up</div>
+      </div>
+    </div> -->
+    <div id="slideMain"></div>
+    <div id="users"></div>
+    <div id="sort"></div>
+    <div id="contain"></div>
+  </body>
+</html>
+
+<script src="script/omdbApi.js"></script>
+<script type="module">
+  import { navbar } from "./components/navbar.js";
+  document.querySelector(".nav").innerHTML = navbar();
+
+  // let click_login = document.getElementById("click-login");
+
+  // click_login.addEventListener("click", () => {
+  //   window.location.href = "login.html";
+  // });
+</script>

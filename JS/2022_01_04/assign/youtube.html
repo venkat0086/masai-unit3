@@ -1,0 +1,44 @@
+<!-- On the homepage of your YT app, the default videos should be the most popular videos in India.
+    Make a GET request to fetch the most popular videos in India and show the data accordingly.
+    Use ES6 throughout. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube</title>
+    <link rel="stylesheet" href="youtube.css" />
+    <script
+      src="https://kit.fontawesome.com/01d54b8bb8.js"
+      crossorigin="anonymous"
+    ></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="head">
+      <div id="icon">
+        <i class="fab fa-youtube fa-3x"></i>
+        <div>YouTube</div>
+      </div>
+
+      <div id="div_search">
+        <input type="text" id="video" placeholder="Search...." />
+        <button onclick="searchVideo()"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <div id="trend">
+      <img
+        src="https://www.youtube.com/img/trending/avatar/trending_avatar.png"
+        alt="trending"
+      />
+      <h1>Trending Videos</h1>
+    </div>
+    <div id="relate_div"></div>
+    <div id="show_div"></div>
+    <div id="search_results"></div>
+  </body>
+</html>
+<script src="youtube.js"></script>

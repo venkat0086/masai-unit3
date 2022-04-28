@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //   let grandparent = {
+  //     family: "Gowdru Family",
+  //     name: "Giri and Sons",
+  //     role: "Agriculture",
+  //   };
+
+  //   let parent = Object.create(grandparent);
+  //   parent.name = "Ramu";
+  //   parent.age = 56;
+
+  //   let son = Object.create(parent);
+  //   son.name = "venkat";
+  //   son.age = 22;
+
+  //   console.log(son);
+
+  function son() {
+    this.name = "Venkat";
+    this.age = 23;
+  }
+
+  let fam = son.prototype;
+  fam.family = "Gowdru";
+  fam.role = "Agriculture";
+
+  let myself = new son();
+  console.log(myself);
+</script>

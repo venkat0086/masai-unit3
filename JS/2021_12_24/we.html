@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //   const parents = {
+  //     father: "krishna",
+  //     mother: "priya",
+  //   };
+  //   const son = Object.create(parents);
+  //   console.log(son.father);
+
+  //   var amar = { money: 100 };
+  //   var akbar = Object.create(amar);
+  //   var anthony = Object.create(akbar);
+  //   console.log(anthony);
+
+  //   function iphone() {
+  //     this.name = "iphone";
+  //   }
+  //   iphone.prototype.FaceId = function () {
+  //     console.log("Scanning");
+  //   };
+  //   var i1 = new iphone();
+  //   i1.FaceId();
+
+  //   var obj = {};
+  //   for (var i = 97; i < 123; i++) {
+  //     var str = String.fromCharCode(i);
+  //     obj[str] = 0;
+  //   }
+  //   console.log(obj);
+
+  var arr = [1, 2, 3];
+  let arr2 = new Array(1, 2, 3);
+  console.log(arr2);
+
+  //Custom Array Object
+  //   let venArr = new MyArr(1, 2, 3);
+  //   console.log(venArr);
+
+  //   function MyArr() {
+  //     this.length = arguments.length;
+  //     for (let i = 0; i < this.length; i++) {
+  //       this[i] = arguments[i];
+  //     }
+  //   }
+
+  //Custom Array Operation
+  //   function MyArr() {
+  //     this.length = arguments.length;
+
+  //     Object.defineProperty(this, "length", {
+  //       writable: true,
+  //       enumerable: false,
+  //     });
+
+  //     for (var i = 0; i < this.length; i++) {
+  //       this[i] = arguments[i];
+  //     }
+  //   }
+  //   let venArr = new MyArr(1, 2, 3);
+  //   console.log(Object.values(venArr));
+
+  //Custom Push Operation
+  //   function MyArr() {
+  //     this.length = arguments.length;
+
+  //     Object.defineProperty(this, "length", {
+  //       writable: true,
+  //       enumerable: false,
+  //     });
+
+  //     for (var i = 0; i < this.length; i++) {
+  //       this[i] = arguments[i];
+  //     }
+  //   }
+
+  //   MyArr.prototype.ತಳ್ಳು = function (ele) {
+  //     this[this.length] = ele;
+  //     this.length++;
+  //   };
+  //   let venArr = new MyArr(1, 2, 3);
+  //   venArr.ತಳ್ಳು(4);
+  //   console.log(Object.values(venArr));
+
+  //Custom Pop Operation
+  //   function MyArr() {
+  //     this.length = arguments.length;
+
+  //     Object.defineProperty(this, "length", {
+  //       writable: true,
+  //       enumerable: false,
+  //     });
+
+  //     for (var i = 0; i < this.length; i++) {
+  //       this[i] = arguments[i];
+  //     }
+  //   }
+
+  //   MyArr.prototype.ತೆಗೆದುಹಾಕಿ = function () {
+  //     let index = this.length - 1;
+  //     delete this[index];
+  //     this.length--;
+  //   };
+  //   let venArr = new MyArr(1, 2, 3, 4);
+  //   venArr.ತೆಗೆದುಹಾಕಿ(4);
+  //   console.log(Object.values(venArr));
+
+  //Custom reversing array
+
+  function MyArr() {
+    this.length = arguments.length;
+
+    Object.defineProperty(this, "length", {
+      writable: true,
+      enumerable: false,
+    });
+
+    for (var i = 0; i < this.length; i++) {
+      this[i] = arguments[i];
+    }
+  }
+  MyArr.prototype.myRev = function () {
+    console.log("Reversed Array:");
+    for (var i = this.length - 1; i >= 0; i--) {
+      console.log(this[i]);
+    }
+  };
+
+  MyArr.prototype.firstEle = function () {
+    console.log("First Element: " + this[0]);
+  };
+  let venArr = new MyArr(1, 2, 3, 4, 88);
+
+  console.log(Object.values(venArr));
+  venArr.myRev();
+  venArr.firstEle();
+</script>

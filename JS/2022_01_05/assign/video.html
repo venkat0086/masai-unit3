@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube</title>
+    <script
+      src="https://kit.fontawesome.com/01d54b8bb8.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="youtube.css" />
+    <style>
+      #main {
+        display: flex;
+        height: 500px;
+        gap: 25px;
+      }
+      #video_details {
+        flex: 65%;
+      }
+      #recommendation {
+        flex: 35%;
+      }
+      #recommendation > div {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="head">
+      <div id="icon">
+        <i class="fab fa-youtube fa-3x"></i>
+        <div>YouTube</div>
+      </div>
+
+      <div id="div_search">
+        <input type="text" id="video" placeholder="Search...." />
+        <button onclick="searchVideo()"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <div id="main">
+      <div id="video_details"></div>
+      <div id="recommendation">
+        <!-- <div id="rec_video"></div>
+        <div id="rec_title"></div> -->
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const API = "AIzaSyCXYyRKlFztCODWoGJx1HF2BQIyy7wqlv0";
+  document.querySelector("button").addEventListener("click", () => {
+    window.location.href = "youtube.html";
+  });
+  let { videoId } = JSON.parse(localStorage.getItem("clicked_video"));
+
+  let video_div = document.getElementById("video_details");
+
+  let iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube.com/embed/${videoId}`;
+  iframe.height = "100%";
+  iframe.frameBorder = "0";
+  iframe.width = "100%";
+  iframe.setAttribute("allowfullscreen", true);
+
+  video_div.append(iframe);
+
+  const showPopular = async () => {
+    try {
+      let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&key=${API}`;
+      let response = await fetch(url);
+      let data = await response.json();
+
+      let popular = data.items;
+      console.log(data);
+      showList(popular);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const showList = (items) => {
+    let show_recommend = document.getElementById("recommendation");
+    items.map((el) => {
+      const {
+        id,
+        snippet: { title },
+      } = el;
+      //   console.log(id);
+      //   console.log(title);
+      let main_rec_div = document.createElement("div");
+      let rec_video = document.createElement("div");
+      let rec_title = document.createElement("div");
+      rec_title.innerText = title;
+
+      let iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube.com/embed/${id}`;
+      iframe.height = "100";
+      iframe.width = "180";
+      iframe.frameBorder = "0";
+      iframe.setAttribute("allowfullscreen", true);
+
+      rec_video.style.width = "42%";
+
+      rec_video.append(iframe);
+      main_rec_div.append(rec_video, rec_title);
+      show_recommend.append(main_rec_div);
+    });
+  };
+
+  showPopular();
+</script>

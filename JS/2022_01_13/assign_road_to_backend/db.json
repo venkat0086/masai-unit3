@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Kit-Kat",
+      "price": "100"
+    },
+    {
+      "name": "Dairy  Milk",
+      "price": "165",
+      "id": "2"
+    },
+    {
+      "name": "Milky-Bar",
+      "price": "250",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "name": "Dark-fantasy",
+      "price": "120"
+    }
+  ]
+}

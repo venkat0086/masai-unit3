@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: #053672;
+    }
+    #daily_arr {
+      display: flex;
+      width: 70%;
+      margin: auto;
+    }
+    #daily_arr > div {
+      margin-left: 30px;
+      text-align: center;
+      color: white;
+    }
+  </style>
+  <body>
+    <div id="daily_arr"></div>
+    ;
+  </body>
+</html>
+<script>
+  async function getWeather() {
+    try {
+      let city = document.getElementById("cityName").value;
+      let response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4242e32c678f16e55803d15f3d9abd6f&units=metric`
+      );
+
+      let data = await response.json();
+      longLat(data);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function longLat(latlon) {
+    try {
+      let lat = latlon.coord.lat;
+      let lon = latlon.coord.lon;
+      let response = await fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,minutely&appid=4242e32c678f16e55803d15f3d9abd6f`
+      );
+
+      let data = await response.json();
+      //   showWeather(data);
+      sevenDay(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function sevenDay(day_arr) {
+    let arr = day_arr.daily;
+    arr.map(function (ele) {
+      let day_div = document.createElement("div");
+      let date = document.createElement("div");
+      date.innerHTML = ele.dt;
+
+      let image = document.createElement("img");
+      image.src = "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png";
+
+      let h3 = document.createElement("h3");
+      h3.innerHTML = `${ele.temp.max}°c`;
+
+      let h4 = document.createElement("h4");
+      h4.innerHTML = `${ele.temp.min}°c`;
+
+      day_div.append(date, image, h3, h4);
+      daily_arr.append(day_div);
+    });
+  }
+</script>

@@ -1,0 +1,29 @@
+#navBar {
+  width: 90%;
+  height: 30px;
+  border: 1px solid red;
+  display: flex;
+  font-size: 20px;
+  justify-content: space-around;
+  margin: auto;
+}
+#navBar > div:hover {
+  cursor: pointer;
+  background-color: red;
+}
+#cart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 80%;
+  margin: auto;
+  grid-gap: 10px;
+}
+img {
+  width: 100%;
+}
+#cartBtn {
+  margin-left: 80%;
+  padding: 10px;
+  margin-top: 100px;
+  background-color: red;
+}

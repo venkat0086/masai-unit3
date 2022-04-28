@@ -1,0 +1,60 @@
+form {
+  width: 30%;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  margin: auto;
+  text-align: center;
+  background: #212121;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+input {
+  width: 70%;
+  padding: 15px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+input[type="submit"] {
+  padding: 20px 50px;
+  background-color: #710fc6;
+  border-radius: 10px;
+  border: 0;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+  box-shadow: white 0px 5px 15px;
+}
+form > div,
+h1 {
+  text-align: left;
+  margin-left: 15%;
+  margin-top: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: grey;
+}
+h1 {
+  color: white;
+}
+body {
+  background-color: #b0e0e6;
+}
+@media only screen and (min-width: 0px) and (max-width: 375px) {
+  #main-login > form {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 768px) {
+  #main-login > form {
+    width: 50%;
+  }
+}
+#main-login {
+  margin-top: 5%;
+}

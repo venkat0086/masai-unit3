@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Food App</title>
+  </head>
+  <body>
+    <div id="main_nav"></div>
+
+    <h2>Search For Food</h2>
+    <div id="search">
+      <div>
+        <input
+          type="text"
+          id="in-search"
+          oninput="debounce(searchItems,1000)"
+          placeholder="Search for dish"
+        />
+        <div id="list"></div>
+      </div>
+
+      <div id="specific-item"></div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  let main_nav = document.getElementById("main_nav");
+  import { navbar } from "./components/navbar.js";
+  main_nav.innerHTML = navbar();
+</script>
+<script>
+  let specific_item = document.getElementById("specific-item");
+
+  let items_div = document.getElementById("list");
+  let item_wait;
+  async function searchItems() {
+    try {
+      let input = document.getElementById("in-search").value;
+
+      if (input.length <= 2) {
+        return false;
+      }
+      let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`;
+
+      let response = await fetch(url);
+      let data = await response.json();
+      let search_arr = data.meals;
+      appendItems(search_arr);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  function appendItems(items) {
+    items_div.innerHTML = null;
+
+    if (items == undefined) {
+      return false;
+    }
+
+    items.forEach((element) => {
+      let p = document.createElement("p");
+      p.innerHTML = element.strMeal;
+
+      p.addEventListener("click", () => {
+        console.log(element);
+        specificDiv(element);
+      });
+
+      items_div.append(p);
+    });
+  }
+
+  let debounce = (func, delay) => {
+    if (item_wait) {
+      clearTimeout(item_wait);
+    }
+    item_wait = setTimeout(() => {
+      func();
+    }, delay);
+  };
+
+  let specificDiv = ({ strMealThumb, strMeal, strArea, strYoutube }) => {
+    specific_item.innerHTML = "";
+
+    let image = document.createElement("img");
+    image.src = strMealThumb;
+
+    let meal = document.createElement("h2");
+    meal.innerHTML = strMeal;
+
+    let area = document.createElement("h3");
+    area.innerHTML = strArea;
+
+    let youtube = document.createElement("a");
+    youtube.innerHTML = "Watch On YouTube";
+    youtube.href = strYoutube;
+
+    specific_item.append(image, meal, area, youtube);
+  };
+</script>

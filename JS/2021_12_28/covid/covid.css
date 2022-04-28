@@ -1,0 +1,31 @@
+#contain {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid grey;
+}
+#remainH2 {
+  color: crimson;
+}
+#btn {
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 5px;
+  background-color: black;
+  color: wheat;
+  font-size: 18px;
+}
+#btn:hover {
+  cursor: pointer;
+  color: black;
+  background-color: greenyellow;
+}
+body {
+  background-color: #b0e0e6;
+}

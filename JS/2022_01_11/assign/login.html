@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/login.css" />
+    <link rel="stylesheet" href="styles/omdbApi.css" />
+  </head>
+  <style>
+    #click-login {
+      color: red;
+    }
+  </style>
+  <body>
+    <div class="nav"></div>
+    <div id="main-login">
+      <form onsubmit="login(event)">
+        <h1>Sign In</h1>
+        <hr />
+        <div>Username</div>
+        <input
+          type="text"
+          name=""
+          id="username-login"
+          placeholder="username"
+          required
+        />
+        <div>Password</div>
+        <input
+          type="password"
+          name=""
+          id="password-login"
+          placeholder="passcode"
+          required
+        />
+
+        <input type="submit" name="" />
+      </form>
+    </div>
+  </body>
+</html>
+<script src="script/login.js"></script>
+<script type="module">
+  import { navbar } from "./components/navbar.js";
+  document.querySelector(".nav").innerHTML = navbar();
+
+  // let click_home = document.getElementById("click-home");
+
+  // click_home.addEventListener("click", () => {
+  //   window.location.href = "omdbApi.html";
+  // });
+
+  let click_signup = document.getElementById("click-signup");
+
+  click_signup.addEventListener("click", () => {
+    window.location.href = "signup.html";
+  });
+</script>

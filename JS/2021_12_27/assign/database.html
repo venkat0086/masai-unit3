@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database</title>
+  </head>
+  <body>
+    <input type="text" name="" id="mName" placeholder="Movie Name" />
+    <input type="date" id="mDate" />
+    <input type="text" id="url" placeholder="image url" />
+    <input type="text" id="mRate" placeholder="Ratings" />
+    <button onclick="addMovieDetails()">Add Details</button>
+  </body>
+</html>
+<script>
+  function addMovieDetails() {
+    let details = {
+      name: document.getElementById("mName").value,
+      date: document.getElementById("mDate").value,
+      imgUrl: document.getElementById("url").value,
+      rate: document.getElementById("mRate").value,
+    };
+    let mDetails = JSON.parse(localStorage.getItem("movieDetails")) || [];
+    mDetails.push(details);
+    localStorage.setItem("movieDetails", JSON.stringify(mDetails));
+  }
+</script>

@@ -1,0 +1,51 @@
+#show_div,
+#search_results {
+  display: grid;
+  /* width: 90%;
+  margin: auto; */
+  grid-template-columns: repeat(3, 32.5%);
+  grid-gap: 15px;
+}
+#search_results {
+  width: 90%;
+  margin: auto;
+}
+.fa-youtube {
+  color: red;
+}
+#icon {
+  display: flex;
+}
+#trend {
+  display: flex;
+  margin-bottom: 10px;
+  width: 28%;
+  justify-content: space-between;
+}
+#icon > div {
+  font-size: 35px;
+  font-weight: bold;
+  font-family: "Segoe UI", Roboto;
+}
+
+#video {
+  width: 500px;
+  padding: 5px 10px;
+  margin-left: 25%;
+}
+#head {
+  width: 100%;
+}
+button {
+  padding: 5px 20px;
+  margin-left: -4px;
+}
+#div_search {
+  /* display: flex; */
+  margin-top: -40px;
+  margin-bottom: 2%;
+}
+h1 {
+  font-weight: bold;
+  font-family: "Segoe UI", Roboto;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="left"></div>
+      <div>
+        <div onclick="goHome()">Home</div>
+        <div onclick="goLogin()" style="color: red">Login</div>
+        <div onclick="goSignUp()">Sign-up</div>
+      </div>
+    </div>
+
+    <div id="main">
+      <form>
+        <h1>Sign In</h1>
+        <hr />
+        <div>E-mail</div>
+        <input
+          id="email"
+          type="email"
+          placeholder="E-mail"
+          required="required"
+        />
+        <div>Password</div>
+        <input
+          id="password"
+          type="password"
+          required="required"
+          placeholder="Password"
+        /><br /><br />
+        <input type="submit" value="Submit" id="button" />
+      </form>
+    </div>
+  </body>
+</html>
+<script src="js/home.js"></script>
+<script src="js/login.js"></script>

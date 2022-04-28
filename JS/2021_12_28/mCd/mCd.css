@@ -1,0 +1,42 @@
+img {
+  width: 100%;
+}
+#orderDiv {
+  width: 40%;
+  margin-left: 12%;
+}
+#orderID {
+  text-align: right;
+  color: crimson;
+}
+#itemDiv {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+body {
+  background-color: #b0e0e6;
+}
+#btn {
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 5px;
+  background-color: black;
+  color: wheat;
+  font-size: 18px;
+}
+#btn:hover {
+  cursor: pointer;
+  color: black;
+  background-color: greenyellow;
+}
+#choose {
+  padding: 10px 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+#contain {
+  display: flex;
+}

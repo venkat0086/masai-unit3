@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Food App</title>
+  </head>
+  <body>
+    <div id="main_nav"></div>
+    <h1>Latest Receipes</h1>
+    <div id="data"></div>
+  </body>
+</html>
+<script type="module">
+  let main_nav = document.getElementById("main_nav");
+  import { getRandom, appendItems } from "./script/showData.js";
+  import { navbar } from "./components/navbar.js";
+
+  main_nav.innerHTML = navbar();
+
+  let data_div = document.getElementById("data");
+
+  let logo = document.getElementById("logo");
+
+  logo.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+
+  let url = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
+
+  let response = getRandom(url);
+  // console.log(response.meals);
+
+  response
+    .then((res) => {
+      console.log(res);
+      appendItems(res.meals, data_div);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+</script>

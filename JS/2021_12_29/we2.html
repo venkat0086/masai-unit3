@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #users {
+      display: grid;
+      width: 80%;
+      grid-template-columns: repeat(4, 1fr);
+      margin: auto;
+      grid-gap: 20px;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <body>
+    <div id="users"></div>
+  </body>
+</html>
+<script>
+  let url = "https://fakestoreapi.com/products";
+  let prod_div = document.getElementById("users");
+
+  async function makeRequest() {
+    try {
+      let res = await fetch(url);
+      let response = await res.json();
+      let users = response;
+
+      //   console.log(users);
+      appendUsers(users); //function call
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  makeRequest();
+
+  function appendUsers(arr) {
+    arr.map(function (user) {
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      img.src = user.image;
+      let price = document.createElement("h2");
+      price.innerText = "Rs. " + user.price;
+      let cate = document.createElement("p");
+      cate.innerText = user.category;
+
+      let desc = document.createElement("p");
+      desc.innerText = user.description;
+
+      div.append(img, price, cate, desc);
+      prod_div.append(div);
+    });
+  }
+</script>
